@@ -1,463 +1,835 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lakshmi Haritha | Portfolio</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gopavarapu Lakshmi Haritha - Software Engineer Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-<!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+        :root {
+            --primary: #7c3aed;
+            --primary-light: #a78bfa;
+            --primary-dark: #6d28d9;
+            --accent: #fbbf24;
+            --accent-light: #fcd34d;
+            --accent-dark: #f59e0b;
+            --bg-dark: #0f172a;
+            --bg-card: #1e293b;
+            --bg-hover: #334155;
+            --text-primary: #f1f5f9;
+            --text-secondary: #cbd5e1;
+            --border-color: #475569;
+        }
 
-<!-- Font Awesome -->
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
 
-<style>
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Inter',sans-serif;
-}
+        /* Header */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background-color: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            padding: 1rem 0;
+        }
 
-html{
-    scroll-behavior:smooth;
-}
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-body{
-    background:#050816;
-    color:#fff;
-    overflow-x:hidden;
-}
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--accent);
+        }
 
-body::before{
-    content:'';
-    position:fixed;
-    width:100%;
-    height:100%;
-    background-image:
-    linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);
-    background-size:40px 40px;
-    z-index:-1;
-}
+        nav {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
 
-/* Navbar */
+        nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
 
-nav{
-    position:fixed;
-    width:100%;
-    top:0;
-    z-index:1000;
-    background:rgba(5,8,22,.7);
-    backdrop-filter:blur(15px);
-    border-bottom:1px solid rgba(255,255,255,.08);
-}
+        nav a:hover {
+            color: var(--accent);
+        }
 
-.nav-container{
-    width:90%;
-    max-width:1200px;
-    margin:auto;
-    padding:20px 0;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-}
+        .cta-button {
+            background-color: var(--accent);
+            color: var(--bg-dark);
+            padding: 0.6rem 1.2rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
 
-.logo{
-    font-size:30px;
-    font-weight:800;
-    color:#8b5cf6;
-}
+        .cta-button:hover {
+            background-color: var(--accent-dark);
+            transform: translateY(-2px);
+        }
 
-nav ul{
-    display:flex;
-    list-style:none;
-    gap:30px;
-}
+        @media (max-width: 768px) {
+            nav {
+                display: none;
+            }
+        }
 
-nav ul li a{
-    text-decoration:none;
-    color:#fff;
-    transition:.3s;
-}
+        /* Hero Section */
+        .hero {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, rgba(124, 58, 237, 0.1) 0%, rgba(251, 191, 36, 0.05) 100%);
+        }
 
-nav ul li a:hover{
-    color:#8b5cf6;
-}
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 0.5rem;
+            line-height: 1.2;
+        }
 
-/* Hero */
+        h1 span {
+            color: var(--accent);
+        }
 
-.hero{
-    min-height:100vh;
-    width:90%;
-    max-width:1200px;
-    margin:auto;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-    padding-top:100px;
-}
+        h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            line-height: 1.2;
+        }
 
-.hero-left{
-    width:100%;
-}
+        h2 span {
+            color: var(--accent);
+        }
 
-.badge{
-    display:inline-block;
-    padding:10px 18px;
-    background:#123025;
-    color:#34d399;
-    border-radius:30px;
-    margin-bottom:20px;
-}
+        section {
+            padding: 4rem 0;
+            border-bottom: 1px solid var(--border-color);
+        }
 
-.hero h1{
-    font-size:70px;
-    line-height:1.1;
-    background:linear-gradient(90deg,#45a3ff,#a855f7);
-    -webkit-background-clip:text;
-    color:transparent;
-}
+        section:nth-child(even) {
+            background-color: rgba(30, 41, 59, 0.5);
+        }
 
-.hero h2{
-    margin:20px 0;
-    color:#cbd5e1;
-    line-height:1.7;
-}
+        .section-header {
+            margin-bottom: 3rem;
+        }
 
-.hero p{
-    color:#94a3b8;
-    line-height:1.8;
-}
+        .section-label {
+            color: var(--accent);
+            font-size: 0.85rem;
+            font-family: 'Courier New', monospace;
+            margin-bottom: 1rem;
+            letter-spacing: 0.1em;
+        }
 
-.buttons{
-    margin:35px 0;
-}
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: var(--accent);
+            font-weight: 600;
+            margin: 1.5rem 0;
+        }
 
-.primary-btn,
-.secondary-btn{
-    text-decoration:none;
-    padding:14px 26px;
-    border-radius:12px;
-    margin-right:15px;
-    display:inline-block;
-}
+        .hero-description {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin-bottom: 2rem;
+        }
 
-.primary-btn{
-    background:linear-gradient(90deg,#6d5dfc,#8b5cf6);
-    color:#fff;
-}
+        .button-group {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
 
-.secondary-btn{
-    border:1px solid #8b5cf6;
-    color:#fff;
-}
+        .btn {
+            padding: 0.8rem 1.5rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
 
-.socials{
-    display:flex;
-    gap:15px;
-}
+        .btn-primary {
+            background-color: var(--accent);
+            color: var(--bg-dark);
+        }
 
-.socials a{
-    width:50px;
-    height:50px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    border:1px solid rgba(255,255,255,.08);
-    border-radius:12px;
-    color:#fff;
-    text-decoration:none;
-    transition:.3s;
-}
+        .btn-primary:hover {
+            background-color: var(--accent-dark);
+            transform: translateY(-2px);
+        }
 
-.socials a:hover{
-    background:#8b5cf6;
-}
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
 
-/* REMOVED hero-right (profile section) */
+        .skill-card {
+            border: 1px solid var(--border-color);
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            background-color: var(--bg-card);
+            transition: all 0.3s ease;
+        }
 
-/* Common */
+        .skill-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(124, 58, 237, 0.2);
+        }
 
-section{
-    width:90%;
-    max-width:1200px;
-    margin:auto;
-    padding:70px 0;
-}
+        .skill-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
 
-.title{
-    font-size:42px;
-    margin-bottom:50px;
-}
+        .skill-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
 
-.grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-    gap:25px;
-}
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
 
-.card{
-    background:rgba(255,255,255,.05);
-    backdrop-filter:blur(15px);
-    border:1px solid rgba(255,255,255,.08);
-    border-radius:20px;
-    padding:30px;
-    transition:.3s;
-}
+        .tag {
+            background-color: rgba(124, 58, 237, 0.2);
+            color: var(--accent);
+            padding: 0.4rem 0.8rem;
+            border-radius: 2rem;
+            font-size: 0.85rem;
+            border: 1px solid rgba(124, 58, 237, 0.4);
+        }
 
-.card:hover{
-    transform:translateY(-10px);
-}
+        /* Experience Section */
+        .experience-list {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
 
-.card h3{
-    color:#8b5cf6;
-    margin-bottom:15px;
-}
+        .experience-item {
+            border-left: 3px solid var(--accent);
+            padding-left: 2rem;
+            position: relative;
+        }
 
-.skills{
-    display:flex;
-    flex-wrap:wrap;
-    gap:15px;
-}
+        .experience-item::before {
+            content: '';
+            position: absolute;
+            left: -8px;
+            top: 0;
+            width: 12px;
+            height: 12px;
+            background-color: var(--accent);
+            border-radius: 50%;
+            border: 2px solid var(--bg-dark);
+        }
 
-.skills span{
-    background:#111827;
-    padding:12px 18px;
-    border-radius:30px;
-}
+        .experience-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.25rem;
+        }
 
-/* Contact */
+        .experience-company {
+            font-size: 1rem;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
 
-.contact-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-    gap:20px;
-}
+        .experience-date {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
 
-.contact-card{
-    text-align:center;
-}
+        .experience-description {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
 
-.contact-card i{
-    font-size:32px;
-    color:#8b5cf6;
-    margin-bottom:15px;
-}
+        .experience-description ul {
+            margin-left: 1.5rem;
+            margin-top: 0.5rem;
+        }
 
-footer{
-    text-align:center;
-    padding:30px;
-    color:#94a3b8;
-}
+        .experience-description li {
+            margin-bottom: 0.5rem;
+        }
 
-/* Responsive */
+        /* Projects Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
 
-@media(max-width:900px){
+        .project-card {
+            border: 1px solid var(--border-color);
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            background-color: var(--bg-card);
+            transition: all 0.3s ease;
+        }
 
-.hero{
-    flex-direction:column;
-    text-align:center;
-}
+        .project-card:hover {
+            border-color: var(--accent);
+            box-shadow: 0 10px 30px rgba(124, 58, 237, 0.2);
+            transform: translateY(-4px);
+        }
 
-.hero-left{
-    width:100%;
-}
+        .project-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
 
-nav ul{
-    display:none;
-}
+        .project-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+        }
 
-.hero h1{
-    font-size:50px;
-}
+        .project-description {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
 
-}
-</style>
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        /* Contact Section */
+        .contact-center {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-description {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            color: var(--accent);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            color: var(--accent-light);
+            transform: translateY(-2px);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border: 2px solid var(--accent);
+            border-radius: 50%;
+            color: var(--accent);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .social-link:hover {
+            background-color: var(--accent);
+            color: var(--bg-dark);
+            transform: translateY(-3px);
+        }
+
+        .social-link svg {
+            width: 20px;
+            height: 20px;
+            stroke: currentColor;
+            fill: currentColor;
+        }
+
+        .filter-btn {
+            padding: 0.6rem 1.2rem;
+            border: 2px solid var(--border-color);
+            background-color: transparent;
+            color: var(--text-secondary);
+            border-radius: 2rem;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .filter-btn:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        .filter-btn.active {
+            background-color: var(--accent);
+            color: var(--bg-dark);
+            border-color: var(--accent);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--bg-card);
+            border-top: 1px solid var(--border-color);
+            padding: 2rem 0;
+            text-align: center;
+            color: var(--text-secondary);
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            h2 {
+                font-size: 1.8rem;
+            }
+
+            .button-group {
+                flex-direction: column;
+            }
+        }
+    </style>
 </head>
-
 <body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">GLH</div>
+                <nav>
+                    <a href="#skills">Skills</a>
+                    <a href="#experience">Experience</a>
+                    <a href="#projects">Projects</a>
+                    <a href="#education">Education</a>
+                    <a href="#contact">Contact</a>
+                </nav>
+            </div>
+        </div>
+    </header>
 
-<!-- NAVBAR -->
-<nav>
-<div class="nav-container">
-<div class="logo">LH</div>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Gopavarapu Lakshmi <span>Haritha</span></h1>
+            <p class="hero-subtitle">Software Engineer | PHP & Laravel Developer | SuiteCRM Specialist | API Integration Expert</p>
+            <p class="hero-description">
+                Software Engineer with 2+ year of professional experience building scalable web applications, implementing secure APIs, and developing custom CRM solutions. Passionate about clean code, system integration, and solving complex technical challenges.
+            </p>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 2rem; margin: 3rem 0; max-width: 600px;">
+                <div style="text-align: center;">
+                    <div style="font-size: 2rem; font-weight: 900; color: var(--accent);">2+</div>
+                    <div style="color: var(--text-secondary); font-size: 0.9rem; margin-top: 0.5rem;">Years Experience</div>
+                </div>
+                <div style="text-align: center;">
+                    <div style="font-size: 2rem; font-weight: 900; color: var(--accent);">5+</div>
+                    <div style="color: var(--text-secondary); font-size: 0.9rem; margin-top: 0.5rem;">Integrations Built</div>
+                </div>
+                <div style="text-align: center;">
+                    <div style="font-size: 2rem; font-weight: 900; color: var(--accent);">2</div>
+                    <div style="color: var(--text-secondary); font-size: 0.9rem; margin-top: 0.5rem;">GitHub Repos</div>
+                </div>
+                <div style="text-align: center;">
+                    <div style="font-size: 2rem; font-weight: 900; color: var(--accent);">8.72</div>
+                    <div style="color: var(--text-secondary); font-size: 0.9rem; margin-top: 0.5rem;">B.Tech GPA</div>
+                </div>
+            </div>
+            <div class="button-group">
+                <a href="#projects" class="btn btn-primary">View My Work</a>
+            </div>
+        </div>
+    </section>
 
-<ul>
-<li><a href="#">Home</a></li>
-<li><a href="#about">About</a></li>
-<li><a href="#experience">Experience</a></li>
-<li><a href="#skills">Skills</a></li>
-<li><a href="#certifications">Certifications</a></li>
-<li><a href="#education">Education</a></li>
-<li><a href="#contact">Contact</a></li>
-</ul>
-</div>
-</nav>
+    <!-- Skills Section -->
+    <section id="skills">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-label">// WHAT I WORK WITH</p>
+                <h2>Technical <span>Skills</span></h2>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <div class="skill-icon">💻</div>
+                    <div class="skill-title">Languages</div>
+                    <div class="skill-tags">
+                        <span class="tag">PHP</span>
+                        <span class="tag">Python</span>
+                        <span class="tag">Java</span>
+                        <span class="tag">JavaScript</span>
+                        <span class="tag">HTML/CSS</span>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">🛠️</div>
+                    <div class="skill-title">Frameworks & Tools</div>
+                    <div class="skill-tags">
+                        <span class="tag">Laravel</span>
+                        <span class="tag">SuiteCRM</span>
+                        <span class="tag">Postman</span>
+                        <span class="tag">GitLab</span>
+                        <span class="tag">phpMyAdmin</span>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">🗄️</div>
+                    <div class="skill-title">Databases</div>
+                    <div class="skill-tags">
+                        <span class="tag">MySQL</span>
+                        <span class="tag">SQL</span>
+                        <span class="tag">Database Design</span>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">☁️</div>
+                    <div class="skill-title">Platforms & Services</div>
+                    <div class="skill-tags">
+                        <span class="tag">Salesforce</span>
+                        <span class="tag">GCP</span>
+                        <span class="tag">AWS</span>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">🔗</div>
+                    <div class="skill-title">API & Integration</div>
+                    <div class="skill-tags">
+                        <span class="tag">REST APIs</span>
+                        <span class="tag">Graph API</span>
+                        <span class="tag">OAuth2</span>
+                        <span class="tag">System Integration</span>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">🤝</div>
+                    <div class="skill-title">Soft Skills</div>
+                    <div class="skill-tags">
+                        <span class="tag">Adaptability</span>
+                        <span class="tag">Team Work</span>
+                        <span class="tag">Problem Solving</span>
+                        <span class="tag">Communication</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<!-- HERO -->
-<section class="hero" id="home">
+    <!-- Experience Section -->
+    <section id="experience">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-label">// WHERE I'VE WORKED</p>
+                <h2>Professional <span>Experience</span></h2>
+            </div>
+            <div class="experience-list">
+                <div class="experience-item">
+                    <div class="experience-company">Vivenns Global Private Limited</div>
+                    <div class="experience-title">Software Engineer</div>
+                    <div class="experience-date">Dec 2023 – Present | Guntur, India</div>
+                    <div class="experience-description">
+                        <ul>
+                            <li><strong>SuiteCRM Development:</strong> Customized and enhanced SuiteCRM using PHP and MySQL by developing custom modules and improving existing functionality to meet business requirements.</li>
+                            <li><strong>Authentication & SSO Integration:</strong> Implemented secure authentication system including SSO login to improve user access and application security.</li>
+                            <li><strong>External System Integrations:</strong> Integrated SuiteCRM with external systems and implemented Facebook and Instagram Graph API integration for secure data exchange and social media data synchronization.</li>
+                            <li><strong>AI-based Document Data Extraction:</strong> Used AI to extract structured data from PDF documents and automatically update records in SuiteCRM, improving accuracy and reducing manual data entry effort.</li>
+                            <li><strong>Laravel Web Application Development:</strong> Developed web applications using Laravel, PHP, MySQL, and Blade templates, focusing on scalable and maintainable solutions.</li>
+                            <li><strong>Secure API Development:</strong> Implemented dynamic forms with validation and token-based secure data handling, and developed RESTful APIs for system integration and data exchange.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<div class="hero-left">
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-label">// ACADEMIC PROJECTS</p>
+                <h2>Featured <span>Projects</span></h2>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-icon">🧠</div>
+                    <div class="project-title">Sign Language Recognition using Deep Learning</div>
+                    <div class="project-description">
+                        Developed a CNN-based system to translate sign language to text/speech, bridging communication gaps for people with hearing impairments. Image processing algorithms along with neural networks were used to map gestures to appropriate text.
+                    </div>
+                    <div class="project-tech">
+                        <span class="tag">CNN Algorithm</span>
+                        <span class="tag">Python</span>
+                        <span class="tag">Deep Learning</span>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-icon">🏭</div>
+                    <div class="project-title">Industry Protection System Using IoT</div>
+                    <div class="project-description">
+                        Developed an IoT-based system to monitor gases, temperature, humidity, and other environmental factors in industrial settings. The system reports information to smartphones and alerts workers about harmful conditions using Arduino.
+                    </div>
+                    <div class="project-tech">
+                        <span class="tag">Arduino</span>
+                        <span class="tag">C</span>
+                        <span class="tag">IoT</span>
+                        <span class="tag">Sensors</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<div class="badge">Available for Opportunities</div>
+    <!-- GitHub Projects Section -->
+    <section id="github-projects">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-label">// GITHUB PROJECTS</p>
+                <h2>Professional <span>Work</span></h2>
+            </div>
 
-<h1>Gopavarapu<br>Lakshmi Haritha</h1>
+            <div class="projects-grid" id="githubProjects">
+                <div class="project-card" data-tech="php,laravel,mysql">
+                    <div class="project-icon">🛒</div>
+                    <div class="project-title">E-Commerce Platform</div>
+                    <div class="project-description">
+                        Full-stack e-commerce application with product management, shopping cart, order processing, and payment integration. Built with Laravel and MySQL for scalability and performance.
+                    </div>
+                    <div class="project-tech">
+                        <span class="tag">Laravel</span>
+                        <span class="tag">PHP</span>
+                        <span class="tag">MySQL</span>
+                        <span class="tag">Payment Integration</span>
+                    </div>
+                </div>
+                <div class="project-card" data-tech="php,laravel,api">
+                    <div class="project-icon">📊</div>
+                    <div class="project-title">CMS Application</div>
+                    <div class="project-description">
+                        Content Management System with user authentication, role-based access control, and RESTful API for content management. Designed for scalability and ease of use.
+                    </div>
+                    <div class="project-tech">
+                        <span class="tag">Laravel</span>
+                        <span class="tag">PHP</span>
+                        <span class="tag">REST API</span>
+                        <span class="tag">MySQL</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<h2>
-Software Engineer | PHP Developer |
-Laravel Developer | SuiteCRM Specialist
-</h2>
+    <!-- Internships Section -->
+    <section id="internships">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-label">// INTERNSHIP EXPERIENCE</p>
+                <h2>Learning <span>Journey</span></h2>
+            </div>
+            <div class="experience-list">
+                <div class="experience-item">
+                    <div class="experience-company">Salesforce Virtual Internship</div>
+                    <div class="experience-title">Salesforce Developer</div>
+                    <div class="experience-date">Aug 2022 – Oct 2022 | Virtual</div>
+                    <div class="experience-description">
+                        <p>AICTE, supported by Smart Internz</p>
+                        <ul>
+                            <li>Gained first-hand experience in Salesforce platform and ecosystem</li>
+                            <li>Creating and managing workflows, process builders, and approval processes</li>
+                            <li>Designing and developing custom Apex classes, triggers, and Visualforce pages</li>
+                            <li>Trailhead Profile: <a href="https://www.salesforce.com/trailblazer/glharitha7" target="_blank" style="color: var(--accent);">https://www.salesforce.com/trailblazer/glharitha7</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="experience-item">
+                    <div class="experience-company">AWS Cloud Virtual Internship</div>
+                    <div class="experience-title">Cloud Foundations</div>
+                    <div class="experience-date">Mar 2022 – May 2022 | Virtual</div>
+                    <div class="experience-description">
+                        <p>Supported by AWS Academy</p>
+                        <ul>
+                            <li>Learned AWS Cloud Foundations combining AWS services with enterprise cloud best practices</li>
+                            <li>Focused on improved automation, security, and manageability</li>
+                            <li>Gained understanding of cloud architecture and deployment strategies</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<p>
-Backend-focused Software Engineer with 2.5+ years of experience in developing enterprise applications, CRM solutions, secure APIs and automation systems.
-</p>
+    <!-- Education Section -->
+    <section id="education">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-label">// EDUCATION</p>
+                <h2>Academic <span>Background</span></h2>
+            </div>
+            <div class="experience-list">
+                <div class="experience-item">
+                    <div class="experience-company">Vasireddy Venkatadri Institute of Technology</div>
+                    <div class="experience-title">Bachelor of Technology - Electronics and Communication Engineering</div>
+                    <div class="experience-date">July 2019 – April 2023 | Guntur, India</div>
+                    <div class="experience-description">
+                        <p><strong>GPA: 8.72</strong></p>
+                        <p>Minor degree in Computer Science and Engineering</p>
+                    </div>
+                </div>
+                <div class="experience-item">
+                    <div class="experience-company">Narayana Junior College</div>
+                    <div class="experience-title">Intermediate - MPC</div>
+                    <div class="experience-date">May 2017 – May 2019 | Guntur, India</div>
+                    <div class="experience-description">
+                        <p><strong>GPA: 9.67</strong></p>
+                    </div>
+                </div>
+                <div class="experience-item">
+                    <div class="experience-company">AP Model School</div>
+                    <div class="experience-title">SSC</div>
+                    <div class="experience-date">June 2016 – March 2017 | Karempudi, India</div>
+                    <div class="experience-description">
+                        <p><strong>GPA: 9.2</strong></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<div class="buttons">
-<a href="#contact" class="secondary-btn">Contact Me</a>
-</div>
+    <!-- Certifications Section -->
+    <section id="certifications">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-label">// CERTIFICATIONS</p>
+                <h2>Professional <span>Certifications</span></h2>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-icon">🎓</div>
+                    <div class="project-title">Java Full Stack Development</div>
+                    <div class="project-description">Trained by Naresh I Technologies</div>
+                </div>
+                <div class="project-card">
+                    <div class="project-icon">🎓</div>
+                    <div class="project-title">PHP with Laravel for Beginners</div>
+                    <div class="project-description">Completed on Udemy</div>
+                </div>
+                <div class="project-card">
+                    <div class="project-icon">🎓</div>
+                    <div class="project-title">Microsoft Azure Fundamentals</div>
+                    <div class="project-description">Certified in Azure Cloud Services</div>
+                </div>
+                <div class="project-card">
+                    <div class="project-icon">🎓</div>
+                    <div class="project-title">C Programming Certificate</div>
+                    <div class="project-description">Completed on SOLOLEARN</div>
+                </div>
+                <div class="project-card">
+                    <div class="project-icon">🎓</div>
+                    <div class="project-title">Java Full Stack by Wipro</div>
+                    <div class="project-description">TalentNext Course - Successfully Completed</div>
+                </div>
+                <div class="project-card">
+                    <div class="project-icon">🎓</div>
+                    <div class="project-title">Python Basics</div>
+                    <div class="project-description">Online Course on Coursera</div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<div class="socials">
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <div class="contact-center">
+                <p class="section-label">// CONTACT</p>
+                <h2>Get In <span>Touch</span></h2>
+                <p class="contact-description">
+                    I'm always interested in hearing about new opportunities, collaborations, and interesting projects. Feel free to reach out!
+                </p>
 
-<a href="https://www.linkedin.com/in/gopavarapu-lakshmi-haritha" target="_blank">
-<i class="fab fa-linkedin"></i>
-</a>
+                <div class="contact-info">
+                    <a href="mailto:glharitha7@gmail.com" class="contact-item">
+                        <span>📧</span>
+                        <span>glharitha7@gmail.com</span>
+                    </a>
+                    <a href="tel:+917893420657" class="contact-item">
+                        <span>📱</span>
+                        <span>+91-7893420657</span>
+                    </a>
+                </div>
 
-<a href="https://github.com/glharitha7" target="_blank">
-<i class="fab fa-github"></i>
-</a>
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/gopavarapu-lakshmi-haritha" target="_blank" class="social-link" title="LinkedIn">in</a>
+                    <a href="https://github.com/glharitha7" target="_blank" class="social-link" title="GitHub"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v 3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg></a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<a href="mailto:glharitha7@gmail.com">
-<i class="fa fa-envelope"></i>
-</a>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- ABOUT -->
-<section id="about">
-<h2 class="title">About Me</h2>
-<div class="card">
-<p>
-Software Engineer with 2.5+ years of experience in PHP, Laravel and SuiteCRM development. Experienced in CRM customization, REST API development, authentication systems, third-party integrations, and automation solutions for enterprise applications.
-</p>
-</div>
-</section>
-
-<!-- EXPERIENCE -->
-<section id="experience">
-<h2 class="title">Professional Experience</h2>
-<div class="grid">
-
-<div class="card">
-<h3>🚀 SuiteCRM Development</h3>
-<p>Customized and enhanced SuiteCRM modules, workflows, reports and UI components using PHP and MySQL.</p>
-</div>
-
-<div class="card">
-<h3>🌐 Laravel Development</h3>
-<p>Developed scalable web applications using Laravel, PHP, MySQL and Blade templates.</p>
-</div>
-
-<div class="card">
-<h3>🔐 Authentication & SSO</h3>
-<p>Implemented secure authentication systems and Single Sign-On integration.</p>
-</div>
-
-<div class="card">
-<h3>🔗 API Integrations</h3>
-<p>Integrated Facebook Graph API, Instagram Graph API and external systems.</p>
-</div>
-
-<div class="card">
-<h3>🤖 AI Document Automation</h3>
-<p>Automated extraction of structured data from PDFs and synchronized records in SuiteCRM.</p>
-</div>
-
-<div class="card">
-<h3>⚡ REST API Development</h3>
-<p>Built secure REST APIs with token-based authentication and validation.</p>
-</div>
-
-</div>
-</section>
-
-<!-- SKILLS -->
-<section id="skills">
-<h2 class="title">Technical Skills</h2>
-<div class="skills">
-<span>PHP</span><span>Laravel</span><span>SuiteCRM</span><span>MySQL</span>
-<span>REST APIs</span><span>JavaScript</span><span>jQuery</span><span>HTML5</span>
-<span>CSS3</span><span>Bootstrap</span><span>Git</span><span>GitLab</span>
-<span>Google Cloud Platform</span>
-</div>
-</section>
-
-<!-- CERTIFICATIONS -->
-<section id="certifications">
-<h2 class="title">Certifications</h2>
-<div class="grid">
-<div class="card"><h3>☕ Java Full Stack Development</h3><p>Naresh I Technologies</p></div>
-<div class="card"><h3>🚀 PHP with Laravel for Beginners</h3><p>Udemy</p></div>
-<div class="card"><h3>☁️ Microsoft Azure Fundamentals</h3><p>Microsoft</p></div>
-<div class="card"><h3>💻 C Programming</h3><p>SoloLearn</p></div>
-<div class="card"><h3>🏆 Java Full Stack (TalentNext)</h3><p>Wipro</p></div>
-<div class="card"><h3>🐍 Python Basics</h3><p>Coursera</p></div>
-</div>
-</section>
-
-<!-- EDUCATION -->
-<section id="education">
-<h2 class="title">Education</h2>
-<div class="card">
-<h3>🎓 B.Tech - Electronics & Communication Engineering</h3>
-<p>Vasireddy Venkatadri Institute of Technology (VVIT), Guntur</p>
-<p>2019 - 2023</p>
-</div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact">
-<h2 class="title">Let's Connect</h2>
-
-<div class="contact-grid">
-
-<div class="card contact-card">
-<i class="fas fa-envelope"></i>
-<h3>Email</h3>
-<p><a href="mailto:glharitha7@gmail.com" style="color:#cbd5e1;text-decoration:none;">glharitha7@gmail.com</a></p>
-</div>
-
-<div class="card contact-card">
-<i class="fab fa-linkedin"></i>
-<h3>LinkedIn</h3>
-<p><a href="https://linkedin.com/in/gopavarapu-lakshmi-haritha" target="_blank" style="color:#cbd5e1;text-decoration:none;">View Profile</a></p>
-</div>
-
-<div class="card contact-card">
-<i class="fab fa-github"></i>
-<h3>GitHub</h3>
-<p><a href="https://github.com/glharitha7" target="_blank" style="color:#cbd5e1;text-decoration:none;">View Projects</a></p>
-</div>
-
-<div class="card contact-card">
-<i class="fas fa-location-dot"></i>
-<h3>Location</h3>
-<p>Hyderabad, Telangana, India</p>
-</div>
-
-</div>
-</section>
-
-<footer>
-© 2026 Gopavarapu Lakshmi Haritha. All Rights Reserved.
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>© 2024 Gopavarapu Lakshmi Haritha. All rights reserved.</p>
+        </div>
 </footer>
-
 </body>
 </html>
