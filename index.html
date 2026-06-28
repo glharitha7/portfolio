@@ -3,402 +3,461 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Gopavarapu Lakshmi Haritha — PHP / Laravel Developer</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<title>Lakshmi Haritha | Portfolio</title>
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<!-- Font Awesome -->
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+
 <style>
-  :root{
-    --bg:#070B14;
-    --bg-soft:#0D1320;
-    --card:#101729;
-    --line:#1C2740;
-    --line-strong:#2A3856;
-    --text:#E8EDF7;
-    --text-soft:#8893AB;
-    --accent:#22D3EE;
-    --accent-dim:#0E7C92;
-    --accent-glow:rgba(34,211,238,.20);
-    --amber:#F4B860;
-  }
-  *{margin:0;padding:0;box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
-  body{
-    background:var(--bg);
-    color:var(--text);
-    font-family:'Sora',Arial,sans-serif;
-    line-height:1.65;
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Inter',sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#050816;
+    color:#fff;
     overflow-x:hidden;
-  }
-  .mono{font-family:'JetBrains Mono',Consolas,monospace;}
-  a{color:var(--accent);text-decoration:none;}
-  a:hover{text-decoration:underline;}
+}
 
-  .bg-grid{
-    position:fixed;top:0;left:0;width:100%;height:100%;
+body::before{
+    content:'';
+    position:fixed;
+    width:100%;
+    height:100%;
     background-image:
-      linear-gradient(var(--line) 1px, transparent 1px),
-      linear-gradient(90deg, var(--line) 1px, transparent 1px);
-    background-size:48px 48px;
-    opacity:.18;
-    pointer-events:none;
-    z-index:0;
-    mask-image:radial-gradient(ellipse 60% 50% at 50% 0%, black 0%, transparent 70%);
-  }
-  .glow{
-    position:fixed;top:-200px;left:50%;transform:translateX(-50%);
-    width:900px;height:500px;
-    background:radial-gradient(ellipse at center, var(--accent-glow) 0%, transparent 70%);
-    pointer-events:none;z-index:0;
-  }
-  .glow-2{
-    position:fixed;bottom:-300px;right:-200px;
-    width:700px;height:700px;
-    background:radial-gradient(circle at center, rgba(34,211,238,.08) 0%, transparent 70%);
-    pointer-events:none;z-index:0;
-  }
+    linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);
+    background-size:40px 40px;
+    z-index:-1;
+}
 
-  .wrap{max-width:920px;margin:0 auto;padding:0 32px;position:relative;z-index:1;}
+/* Navbar */
 
-  header.hero{padding:90px 0 50px;}
-  .status-badge{
-    display:inline-flex;align-items:center;gap:8px;
-    font-family:'JetBrains Mono',monospace;font-size:12px;
-    color:var(--accent);border:1px solid var(--accent-dim);
-    background:rgba(34,211,238,.08);
-    border-radius:20px;padding:6px 14px 6px 11px;margin-bottom:26px;
-  }
-  .status-dot{
-    width:7px;height:7px;border-radius:50%;background:var(--accent);
-    box-shadow:0 0 0 0 rgba(34,211,238,.5);
-    animation:pulse 2s infinite;
-  }
-  @keyframes pulse{
-    0%{box-shadow:0 0 0 0 rgba(34,211,238,.45);}
-    70%{box-shadow:0 0 0 8px rgba(34,211,238,0);}
-    100%{box-shadow:0 0 0 0 rgba(34,211,238,0);}
-  }
-  .eyebrow{
-    font-family:'JetBrains Mono',monospace;font-size:13px;
-    letter-spacing:.14em;text-transform:uppercase;
-    color:var(--text-soft);margin-bottom:18px;
-  }
-  h1{
-    font-family:'Sora',sans-serif;font-weight:800;
-    font-size:56px;letter-spacing:-0.02em;line-height:1.05;
-    margin-bottom:14px;
-  }
-  h1 .hl{color:var(--accent);}
-  .role{
-    font-family:'JetBrains Mono',monospace;font-size:18px;
-    color:var(--text-soft);margin-bottom:26px;
-  }
-  .role .cursor{
-    display:inline-block;width:9px;height:18px;background:var(--accent);
-    margin-left:4px;vertical-align:-3px;
-    animation:blink 1s steps(1) infinite;
-  }
-  @keyframes blink{50%{opacity:0;}}
-  .tagline{max-width:560px;font-size:17px;color:var(--text-soft);margin-bottom:32px;}
+nav{
+    position:fixed;
+    width:100%;
+    top:0;
+    z-index:1000;
+    background:rgba(5,8,22,.7);
+    backdrop-filter:blur(15px);
+    border-bottom:1px solid rgba(255,255,255,.08);
+}
 
-  .contact-row{display:flex;gap:22px;flex-wrap:wrap;font-size:13px;font-family:'JetBrains Mono',monospace;margin-bottom:32px;}
-  .contact-row span{color:var(--text-soft);}
-  .contact-row a{color:var(--text);}
-  .contact-row a:hover{color:var(--accent);}
+.nav-container{
+    width:90%;
+    max-width:1200px;
+    margin:auto;
+    padding:20px 0;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
 
-  .cta-row{display:flex;gap:12px;flex-wrap:wrap;}
-  .btn{
-    font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:500;
-    padding:13px 22px;border-radius:6px;border:1px solid var(--line-strong);
-    color:var(--text);background:var(--card);
-    transition:all .18s ease;cursor:pointer;
-    display:inline-flex;align-items:center;gap:6px;
-  }
-  .btn.primary{background:var(--accent);border-color:var(--accent);color:#04222B;font-weight:600;}
-  .btn:hover{border-color:var(--accent);transform:translateY(-2px);box-shadow:0 6px 18px rgba(34,211,238,.14);}
-  .btn.primary:hover{box-shadow:0 6px 20px rgba(34,211,238,.4);}
-  .btn:not(:hover){text-decoration:none;}
+.logo{
+    font-size:30px;
+    font-weight:800;
+    color:#8b5cf6;
+}
 
-  section{padding:64px 0;border-top:1px solid var(--line);}
-  .section-label{
-    font-family:'JetBrains Mono',monospace;font-size:13px;
-    letter-spacing:.1em;text-transform:uppercase;color:var(--accent);
-    margin-bottom:30px;display:flex;align-items:center;gap:12px;
-  }
-  .section-label::before{content:"//";color:var(--text-soft);}
-  .section-label::after{content:"";flex:1;height:1px;background:var(--line);}
+nav ul{
+    display:flex;
+    list-style:none;
+    gap:30px;
+}
 
-  .module-map{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:14px;}
-  .module{
-    background:var(--card);border:1px solid var(--line);border-radius:10px;
-    padding:18px 16px;transition:all .2s ease;position:relative;overflow:hidden;
-  }
-  .module::before{
-    content:"";position:absolute;top:0;left:0;width:3px;height:100%;
-    background:var(--accent);transform:scaleY(0);transform-origin:top;
-    transition:transform .2s ease;
-  }
-  .module:hover{border-color:var(--line-strong);transform:translateY(-4px);background:var(--bg-soft);}
-  .module:hover::before{transform:scaleY(1);}
-  .module .tag{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--accent);text-transform:uppercase;letter-spacing:.06em;display:block;margin-bottom:8px;}
-  .module .name{font-weight:600;font-size:15px;color:var(--text);}
-  .module .desc{font-size:13px;color:var(--text-soft);margin-top:6px;}
-  .connector-note{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--text-soft);text-align:center;}
+nav ul li a{
+    text-decoration:none;
+    color:#fff;
+    transition:.3s;
+}
 
-  .exp-block{margin-bottom:36px;padding-left:20px;border-left:2px solid var(--line);position:relative;}
-  .exp-block::before{
-    content:"";position:absolute;left:-5px;top:4px;width:8px;height:8px;border-radius:50%;
-    background:var(--accent);box-shadow:0 0 0 4px var(--bg);
-  }
-  .exp-head{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px;margin-bottom:12px;}
-  .exp-title{font-weight:700;font-size:17px;color:var(--text);}
-  .exp-company{color:var(--accent);font-size:14px;font-family:'JetBrains Mono',monospace;}
-  .exp-dates{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--text-soft);}
-  ul.bullets{list-style:none;padding-left:0;}
-  ul.bullets li{position:relative;padding-left:20px;margin-bottom:9px;font-size:15px;color:var(--text-soft);}
-  ul.bullets li::before{content:"▸";position:absolute;left:0;color:var(--accent);}
-  ul.bullets li b{font-weight:600;color:var(--text);}
+nav ul li a:hover{
+    color:#8b5cf6;
+}
 
-  .skills-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:28px;}
-  .skill-cat{font-weight:600;font-size:14px;margin-bottom:10px;color:var(--text);}
-  .pill-row{display:flex;flex-wrap:wrap;gap:7px;}
-  .pill{
-    font-family:'JetBrains Mono',monospace;font-size:12px;
-    border:1px solid var(--line-strong);background:var(--bg-soft);
-    padding:5px 11px;border-radius:5px;color:var(--text-soft);
-    transition:border-color .15s ease, color .15s ease;
-  }
-  .pill:hover{border-color:var(--accent);color:var(--accent);}
+/* Hero */
 
-  .proj-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;}
-  .proj-card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:20px;transition:all .2s ease;}
-  .proj-card:hover{border-color:var(--line-strong);transform:translateY(-4px);}
-  .proj-card .name{font-weight:700;margin-bottom:8px;color:var(--text);}
-  .proj-card .desc{font-size:14px;color:var(--text-soft);margin-bottom:10px;}
-  .proj-card .stack{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--accent);}
+.hero{
+    min-height:100vh;
+    width:90%;
+    max-width:1200px;
+    margin:auto;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding-top:100px;
+}
 
-  footer{padding:50px 0 70px;text-align:center;font-size:13px;color:var(--text-soft);font-family:'JetBrains Mono',monospace;border-top:1px solid var(--line);}
-  footer a{color:var(--text-soft);}
-  footer a:hover{color:var(--accent);}
+.hero-left{
+    width:100%;
+}
 
-  .reveal{opacity:0;transform:translateY(16px);animation:rise .65s ease forwards;}
-  @keyframes rise{to{opacity:1;transform:translateY(0);}}
+.badge{
+    display:inline-block;
+    padding:10px 18px;
+    background:#123025;
+    color:#34d399;
+    border-radius:30px;
+    margin-bottom:20px;
+}
 
-  @media (max-width:680px){
-    h1{font-size:36px;}
-    .module-map{grid-template-columns:1fr;}
-    .skills-grid{grid-template-columns:1fr;}
-    .proj-grid{grid-template-columns:1fr;}
-    .exp-head{flex-direction:column;align-items:flex-start;}
-  }
+.hero h1{
+    font-size:70px;
+    line-height:1.1;
+    background:linear-gradient(90deg,#45a3ff,#a855f7);
+    -webkit-background-clip:text;
+    color:transparent;
+}
+
+.hero h2{
+    margin:20px 0;
+    color:#cbd5e1;
+    line-height:1.7;
+}
+
+.hero p{
+    color:#94a3b8;
+    line-height:1.8;
+}
+
+.buttons{
+    margin:35px 0;
+}
+
+.primary-btn,
+.secondary-btn{
+    text-decoration:none;
+    padding:14px 26px;
+    border-radius:12px;
+    margin-right:15px;
+    display:inline-block;
+}
+
+.primary-btn{
+    background:linear-gradient(90deg,#6d5dfc,#8b5cf6);
+    color:#fff;
+}
+
+.secondary-btn{
+    border:1px solid #8b5cf6;
+    color:#fff;
+}
+
+.socials{
+    display:flex;
+    gap:15px;
+}
+
+.socials a{
+    width:50px;
+    height:50px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:12px;
+    color:#fff;
+    text-decoration:none;
+    transition:.3s;
+}
+
+.socials a:hover{
+    background:#8b5cf6;
+}
+
+/* REMOVED hero-right (profile section) */
+
+/* Common */
+
+section{
+    width:90%;
+    max-width:1200px;
+    margin:auto;
+    padding:70px 0;
+}
+
+.title{
+    font-size:42px;
+    margin-bottom:50px;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:rgba(255,255,255,.05);
+    backdrop-filter:blur(15px);
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:20px;
+    padding:30px;
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+}
+
+.card h3{
+    color:#8b5cf6;
+    margin-bottom:15px;
+}
+
+.skills{
+    display:flex;
+    flex-wrap:wrap;
+    gap:15px;
+}
+
+.skills span{
+    background:#111827;
+    padding:12px 18px;
+    border-radius:30px;
+}
+
+/* Contact */
+
+.contact-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+}
+
+.contact-card{
+    text-align:center;
+}
+
+.contact-card i{
+    font-size:32px;
+    color:#8b5cf6;
+    margin-bottom:15px;
+}
+
+footer{
+    text-align:center;
+    padding:30px;
+    color:#94a3b8;
+}
+
+/* Responsive */
+
+@media(max-width:900px){
+
+.hero{
+    flex-direction:column;
+    text-align:center;
+}
+
+.hero-left{
+    width:100%;
+}
+
+nav ul{
+    display:none;
+}
+
+.hero h1{
+    font-size:50px;
+}
+
+}
 </style>
 </head>
+
 <body>
 
-<div class="bg-grid"></div>
-<div class="glow"></div>
-<div class="glow-2"></div>
+<!-- NAVBAR -->
+<nav>
+<div class="nav-container">
+<div class="logo">LH</div>
 
-<div class="wrap">
-  <header class="hero">
-    <div class="status-badge reveal" style="animation-delay:.05s"><span class="status-dot"></span>open to new opportunities</div>
-    <div class="eyebrow reveal" style="animation-delay:.1s">/// portfolio</div>
-    <h1 class="reveal" style="animation-delay:.15s">Gopavarapu<br>Lakshmi <span class="hl">Haritha</span></h1>
-    <div class="role mono reveal" style="animation-delay:.2s"><span id="typewriter"></span><span class="cursor"></span></div>
-    <p class="tagline reveal" style="animation-delay:.25s">I build the connective tissue of business systems — custom CRM modules, secure authentication, and APIs that keep data moving cleanly between platforms.</p>
-    <div class="contact-row reveal" style="animation-delay:.3s">
-      <span>Hyderabad, India</span>
-      <span>+91&nbsp;7893420657</span>
-      <a href="mailto:glharitha7@gmail.com">glharitha7@gmail.com</a>
-      <a href="https://www.linkedin.com/in/gopavarapu-lakshmi-haritha" target="_blank">linkedin.com/in/gopavarapu-lakshmi-haritha</a>
-      <a href="https://github.com/glharitha7" target="_blank">github.com/glharitha7</a>
-    </div>
-    <div class="cta-row reveal" style="animation-delay:.35s">
-      <a class="btn primary" href="mailto:glharitha7@gmail.com?subject=Opportunity%20for%20Haritha">→ get in touch</a>
-      <a class="btn" href="https://github.com/glharitha7" target="_blank">view GitHub</a>
-      <a class="btn" href="https://www.linkedin.com/in/gopavarapu-lakshmi-haritha" target="_blank">view LinkedIn</a>
-      <a class="btn" href="tel:+917893420657">call me</a>
-    </div>
-  </header>
+<ul>
+<li><a href="#">Home</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#experience">Experience</a></li>
+<li><a href="#skills">Skills</a></li>
+<li><a href="#certifications">Certifications</a></li>
+<li><a href="#education">Education</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</div>
+</nav>
 
-  <section>
-    <div class="section-label">system map — what i've built</div>
-    <div class="module-map">
-      <div class="module"><span class="tag">core</span><div class="name">SuiteCRM modules</div><div class="desc">Custom forms, reports, UI on PHP + MySQL</div></div>
-      <div class="module"><span class="tag">security</span><div class="name">SSO authentication</div><div class="desc">Secure login layer for application access</div></div>
-      <div class="module"><span class="tag">integration</span><div class="name">Graph API sync</div><div class="desc">Facebook / Instagram data exchange &amp; automation</div></div>
-      <div class="module"><span class="tag">automation</span><div class="name">AI document extraction</div><div class="desc">PDF data parsed straight into CRM records</div></div>
-      <div class="module"><span class="tag">web</span><div class="name">Laravel applications</div><div class="desc">Blade templates, scalable MVC structure</div></div>
-      <div class="module"><span class="tag">api</span><div class="name">RESTful services</div><div class="desc">Token-secured endpoints for system integration</div></div>
-    </div>
-    <p class="connector-note">all modules connect through a shared PHP / MySQL data layer</p>
-  </section>
+<!-- HERO -->
+<section class="hero" id="home">
 
-  <section>
-    <div class="section-label">experience</div>
-    <div class="exp-block">
-      <div class="exp-head">
-        <div><div class="exp-title">Software Engineer</div><div class="exp-company">Vivenns Global Private Limited</div></div>
-        <div class="exp-dates">Dec 2023 — Present</div>
-      </div>
-      <ul class="bullets">
-        <li>Developed and maintained web applications using <b>Laravel, PHP, MySQL, and Blade templates</b>, with a focus on scalable, maintainable architecture.</li>
-        <li>Customized and extended <b>SuiteCRM</b> — built custom modules, forms, and reports to match evolving business requirements.</li>
-        <li>Implemented a secure <b>SSO authentication system</b> to strengthen application access control.</li>
-        <li>Integrated SuiteCRM with the <b>Facebook and Instagram Graph API</b> for automated social data sync.</li>
-        <li>Built <b>RESTful APIs</b> and token-based secure forms for cross-system data exchange.</li>
-        <li>Used AI to extract structured data from PDFs and auto-populate CRM records, cutting manual entry effort.</li>
-      </ul>
-    </div>
-    <div class="exp-block">
-      <div class="exp-head">
-        <div><div class="exp-title">Salesforce Developer — Virtual Internship</div><div class="exp-company">AICTE / Smart Internz</div></div>
-        <div class="exp-dates">Aug — Oct 2022</div>
-      </div>
-      <ul class="bullets"><li>Built workflows, process builders, and approval processes; designed custom Apex classes, triggers, and Visualforce pages.</li></ul>
-    </div>
-    <div class="exp-block">
-      <div class="exp-head">
-        <div><div class="exp-title">AWS Cloud — Virtual Internship</div><div class="exp-company">AWS Academy</div></div>
-        <div class="exp-dates">Mar — May 2022</div>
-      </div>
-      <ul class="bullets"><li>Completed AWS Cloud Foundations, applying automation and best-practice security principles to cloud projects.</li></ul>
-    </div>
-  </section>
+<div class="hero-left">
 
-  <section>
-    <div class="section-label">stack</div>
-    <div class="skills-grid">
-      <div>
-        <div class="skill-cat">Languages &amp; frameworks</div>
-        <div class="pill-row">
-          <span class="pill">PHP</span><span class="pill">Laravel</span><span class="pill">Blade</span>
-          <span class="pill">JavaScript</span><span class="pill">jQuery</span><span class="pill">HTML5</span>
-          <span class="pill">CSS3</span><span class="pill">Java</span><span class="pill">Python</span>
-        </div>
-      </div>
-      <div>
-        <div class="skill-cat">Data &amp; APIs</div>
-        <div class="pill-row">
-          <span class="pill">MySQL</span><span class="pill">phpMyAdmin</span><span class="pill">REST APIs</span>
-          <span class="pill">Graph API</span><span class="pill">SSO</span>
-        </div>
-      </div>
-      <div>
-        <div class="skill-cat">Tools &amp; platforms</div>
-        <div class="pill-row">
-          <span class="pill">SuiteCRM</span><span class="pill">GitLab</span><span class="pill">Postman</span>
-          <span class="pill">GCP</span><span class="pill">Salesforce</span>
-        </div>
-      </div>
-      <div>
-        <div class="skill-cat">Certifications</div>
-        <div class="pill-row">
-          <span class="pill">Azure Fundamentals</span><span class="pill">Java Full Stack</span>
-          <span class="pill">Laravel (Udemy)</span><span class="pill">Python (Coursera)</span>
-        </div>
-      </div>
-    </div>
-  </section>
+<div class="badge">Available for Opportunities</div>
 
-  <section>
-    <div class="section-label">projects</div>
-    <div class="proj-grid" style="grid-template-columns:repeat(2,1fr);">
-      <div class="proj-card">
-        <a href="https://github.com/glharitha7/eComm-laravel" target="_blank" style="text-decoration:none;">
-          <div class="name">eComm-laravel <i style="font-size:12px; color:var(--text-soft);">↗</i></div>
-        </a>
-        <div class="desc">An e-commerce application built on the Laravel framework, covering routing, Eloquent ORM, and Blade-based views for the storefront.</div>
-        <div class="stack">php · laravel · blade</div>
-      </div>
-      <div class="proj-card">
-        <a href="https://github.com/glharitha7/laravel-codehacking-project" target="_blank" style="text-decoration:none;">
-          <div class="name">laravel-codehacking-project <i style="font-size:12px; color:var(--text-soft);">↗</i></div>
-        </a>
-        <div class="desc">A Laravel practice project built around Blade templating and core MVC structure, used to sharpen hands-on framework fundamentals.</div>
-        <div class="stack">php · laravel · blade · tailwind</div>
-      </div>
-      <div class="proj-card">
-        <div class="name">Sign language recognition</div>
-        <div class="desc">CNN-based image processing model translating sign-language gestures to text/speech to bridge communication gaps for the hearing-impaired.</div>
-        <div class="stack">python · cnn</div>
-      </div>
-      <div class="proj-card">
-        <div class="name">Industry protection system (IoT)</div>
-        <div class="desc">Arduino-based monitoring of gas, temperature, and humidity with real-time smartphone alerts for hazardous conditions.</div>
-        <div class="stack">arduino · c</div>
-      </div>
-    </div>
-  </section>
+<h1>Gopavarapu<br>Lakshmi Haritha</h1>
 
-  <section>
-    <div class="section-label">education</div>
-    <ul class="bullets">
-      <li><b>B.Tech, Electronics &amp; Communication Engineering</b> — Vasireddy Venkatadri Institute of Technology, Guntur (GPA 8.72) · 2019–2023</li>
-      <li><b>Intermediate (MPC)</b> — Narayana Junior College, Guntur (GPA 9.67) · 2017–2019</li>
-      <li><b>SSC</b> — AP Model School, Karempudi (GPA 9.2) · 2016–2017</li>
-    </ul>
-  </section>
+<h2>
+Software Engineer | PHP Developer |
+Laravel Developer | SuiteCRM Specialist
+</h2>
 
-  <section style="border-bottom:none;">
-    <div class="section-label">beyond the code</div>
-    <div class="skills-grid">
-      <div>
-        <div class="skill-cat">Co-curricular</div>
-        <ul class="bullets">
-          <li>Shortlisted for Minor Degree in Computer Science &amp; Engineering by JNTUK</li>
-          <li>Participated in the Electrical Reasoning competition conducted by IEI</li>
-        </ul>
-      </div>
-      <div>
-        <div class="skill-cat">Languages</div>
-        <div class="pill-row">
-          <span class="pill">Telugu — first language</span>
-          <span class="pill">English — professional</span>
-        </div>
-        <div class="skill-cat" style="margin-top:18px;">Hobbies</div>
-        <div class="pill-row">
-          <span class="pill">Cycling</span><span class="pill">Sudoku</span><span class="pill">Carroms</span>
-        </div>
-      </div>
-    </div>
-  </section>
+<p>
+Backend-focused Software Engineer with 2.5+ years of experience in developing enterprise applications, CRM solutions, secure APIs and automation systems.
+</p>
 
-  <footer>
-    <a href="mailto:glharitha7@gmail.com">glharitha7@gmail.com</a> · +91 7893420657 · Hyderabad, India · <a href="https://github.com/glharitha7" target="_blank">GitHub</a>
-  </footer>
+<div class="buttons">
+<a href="#contact" class="secondary-btn">Contact Me</a>
 </div>
 
-<script>
-  const roles = ["PHP Developer", "CRM Engineer", "API Specialist", "Full-Stack Dev"];
-  const el = document.getElementById('typewriter');
-  let roleIndex = 0, charIndex = 0, deleting = false;
+<div class="socials">
 
-  function tick(){
-    const current = roles[roleIndex];
-    if(!deleting){
-      charIndex++;
-      el.textContent = current.slice(0, charIndex);
-      if(charIndex === current.length){
-        deleting = true;
-        setTimeout(tick, 1400);
-        return;
-      }
-      setTimeout(tick, 70);
-    } else {
-      charIndex--;
-      el.textContent = current.slice(0, charIndex);
-      if(charIndex === 0){
-        deleting = false;
-        roleIndex = (roleIndex + 1) % roles.length;
-        setTimeout(tick, 300);
-        return;
-      }
-      setTimeout(tick, 35);
-    }
-  }
-  tick();
-</script>
+<a href="https://www.linkedin.com/in/gopavarapu-lakshmi-haritha" target="_blank">
+<i class="fab fa-linkedin"></i>
+</a>
+
+<a href="https://github.com/glharitha7" target="_blank">
+<i class="fab fa-github"></i>
+</a>
+
+<a href="mailto:glharitha7@gmail.com">
+<i class="fa fa-envelope"></i>
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+<h2 class="title">About Me</h2>
+<div class="card">
+<p>
+Software Engineer with 2.5+ years of experience in PHP, Laravel and SuiteCRM development. Experienced in CRM customization, REST API development, authentication systems, third-party integrations, and automation solutions for enterprise applications.
+</p>
+</div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+<h2 class="title">Professional Experience</h2>
+<div class="grid">
+
+<div class="card">
+<h3>🚀 SuiteCRM Development</h3>
+<p>Customized and enhanced SuiteCRM modules, workflows, reports and UI components using PHP and MySQL.</p>
+</div>
+
+<div class="card">
+<h3>🌐 Laravel Development</h3>
+<p>Developed scalable web applications using Laravel, PHP, MySQL and Blade templates.</p>
+</div>
+
+<div class="card">
+<h3>🔐 Authentication & SSO</h3>
+<p>Implemented secure authentication systems and Single Sign-On integration.</p>
+</div>
+
+<div class="card">
+<h3>🔗 API Integrations</h3>
+<p>Integrated Facebook Graph API, Instagram Graph API and external systems.</p>
+</div>
+
+<div class="card">
+<h3>🤖 AI Document Automation</h3>
+<p>Automated extraction of structured data from PDFs and synchronized records in SuiteCRM.</p>
+</div>
+
+<div class="card">
+<h3>⚡ REST API Development</h3>
+<p>Built secure REST APIs with token-based authentication and validation.</p>
+</div>
+
+</div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+<h2 class="title">Technical Skills</h2>
+<div class="skills">
+<span>PHP</span><span>Laravel</span><span>SuiteCRM</span><span>MySQL</span>
+<span>REST APIs</span><span>JavaScript</span><span>jQuery</span><span>HTML5</span>
+<span>CSS3</span><span>Bootstrap</span><span>Git</span><span>GitLab</span>
+<span>Google Cloud Platform</span>
+</div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section id="certifications">
+<h2 class="title">Certifications</h2>
+<div class="grid">
+<div class="card"><h3>☕ Java Full Stack Development</h3><p>Naresh I Technologies</p></div>
+<div class="card"><h3>🚀 PHP with Laravel for Beginners</h3><p>Udemy</p></div>
+<div class="card"><h3>☁️ Microsoft Azure Fundamentals</h3><p>Microsoft</p></div>
+<div class="card"><h3>💻 C Programming</h3><p>SoloLearn</p></div>
+<div class="card"><h3>🏆 Java Full Stack (TalentNext)</h3><p>Wipro</p></div>
+<div class="card"><h3>🐍 Python Basics</h3><p>Coursera</p></div>
+</div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+<h2 class="title">Education</h2>
+<div class="card">
+<h3>🎓 B.Tech - Electronics & Communication Engineering</h3>
+<p>Vasireddy Venkatadri Institute of Technology (VVIT), Guntur</p>
+<p>2019 - 2023</p>
+</div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+<h2 class="title">Let's Connect</h2>
+
+<div class="contact-grid">
+
+<div class="card contact-card">
+<i class="fas fa-envelope"></i>
+<h3>Email</h3>
+<p><a href="mailto:glharitha7@gmail.com" style="color:#cbd5e1;text-decoration:none;">glharitha7@gmail.com</a></p>
+</div>
+
+<div class="card contact-card">
+<i class="fab fa-linkedin"></i>
+<h3>LinkedIn</h3>
+<p><a href="https://linkedin.com/in/gopavarapu-lakshmi-haritha" target="_blank" style="color:#cbd5e1;text-decoration:none;">View Profile</a></p>
+</div>
+
+<div class="card contact-card">
+<i class="fab fa-github"></i>
+<h3>GitHub</h3>
+<p><a href="https://github.com/glharitha7" target="_blank" style="color:#cbd5e1;text-decoration:none;">View Projects</a></p>
+</div>
+
+<div class="card contact-card">
+<i class="fas fa-location-dot"></i>
+<h3>Location</h3>
+<p>Hyderabad, Telangana, India</p>
+</div>
+
+</div>
+</section>
+
+<footer>
+© 2026 Gopavarapu Lakshmi Haritha. All Rights Reserved.
+</footer>
 
 </body>
 </html>
